@@ -29,7 +29,7 @@
 #---------------------------------------------------------------------------
 # This is the fortran compiler used for MPI programs
 #---------------------------------------------------------------------------
-MPIF77 = mpif77
+MPIF77 = mpif90
 # This links MPI fortran programs; usually the same as ${MPIF77}
 FLINK	= $(MPIF77)
 
@@ -46,7 +46,7 @@ FMPI_INC = -I/usr/include/openmpi
 #---------------------------------------------------------------------------
 # Global *compile time* flags for Fortran programs
 #---------------------------------------------------------------------------
-FFLAGS	= -fdump-rtl-expand
+FFLAGS	= -g -O0 -S -fplugin=$(DRAGONEGG) -fplugin-arg-dragonegg-emit-ir -fdump-rtl-expand # set `export DRAGONEGG` environment
 
 #---------------------------------------------------------------------------
 # Global *link time* flags. Flags for increasing maximum executable 
@@ -75,7 +75,7 @@ FLINKFLAGS = -O
 #---------------------------------------------------------------------------
 # This is the C compiler used for MPI programs
 #---------------------------------------------------------------------------
-MPICC = cc
+MPICC = clang
 # This links MPI C programs; usually the same as ${MPICC}
 CLINK	= $(MPICC)
 
@@ -92,7 +92,7 @@ CMPI_INC = -I/usr/local/include -I/usr/lib/openmpi/include/openmpi -I/usr/lib/op
 #---------------------------------------------------------------------------
 # Global *compile time* flags for C programs
 #---------------------------------------------------------------------------
-CFLAGS	= -O3
+CFLAGS	= -g -O0 -emit-llvm
 
 #---------------------------------------------------------------------------
 # Global *link time* flags. Flags for increasing maximum executable 

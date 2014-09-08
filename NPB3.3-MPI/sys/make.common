@@ -23,21 +23,21 @@ config:
 
 COMMON=../common
 ${COMMON}/${RAND}.o: ${COMMON}/${RAND}.f
-	cd ${COMMON}; ${FCOMPILE} ${RAND}.f
+	cd ${COMMON}; ${FCOMPILE} ${RAND}.f -o $@
 ${COMMON}/c_randdp.o: ${COMMON}/randdp.c
 	cd ${COMMON}; ${CCOMPILE} -o c_randdp.o randdp.c
 
 ${COMMON}/print_results.o: ${COMMON}/print_results.f
-	cd ${COMMON}; ${FCOMPILE} print_results.f
+	cd ${COMMON}; ${FCOMPILE} print_results.f -o $@
 
 ${COMMON}/c_print_results.o: ${COMMON}/c_print_results.c
-	cd ${COMMON}; ${CCOMPILE} c_print_results.c
+	cd ${COMMON}; ${CCOMPILE} c_print_results.c -o $@
 
 ${COMMON}/timers.o: ${COMMON}/timers.f
-	cd ${COMMON}; ${FCOMPILE} timers.f
+	cd ${COMMON}; ${FCOMPILE} timers.f -o $@
 
 ${COMMON}/c_timers.o: ${COMMON}/c_timers.c
-	cd ${COMMON}; ${CCOMPILE} c_timers.c
+	cd ${COMMON}; ${CCOMPILE} c_timers.c -o $@
 
 # Normally setparams updates npbparams.h only if the settings (CLASS/NPROCS)
 # have changed. However, we also want to update if the compile options
