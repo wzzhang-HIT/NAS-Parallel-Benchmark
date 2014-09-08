@@ -92,7 +92,7 @@ CMPI_INC = -I/usr/local/include -I/usr/lib/openmpi/include/openmpi -I/usr/lib/op
 #---------------------------------------------------------------------------
 # Global *compile time* flags for C programs
 #---------------------------------------------------------------------------
-CFLAGS	= -g -O0 -emit-llvm
+CFLAGS	= -g -c -O0 -emit-llvm
 
 #---------------------------------------------------------------------------
 # Global *link time* flags. Flags for increasing maximum executable 

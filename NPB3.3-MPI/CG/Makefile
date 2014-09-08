@@ -10,10 +10,12 @@ OBJS = cg.o ${COMMON}/print_results.o  \
 include ../sys/make.common
 
 ${PROGRAM}: config ${OBJS}
-	${FLINK} ${FLINKFLAGS} -o ${PROGRAM} ${OBJS} ${FMPI_LIB}
+	llvm-link ${OBJS} -o ${PROGRAM}.bc
+	llc -filetype=obj ${PROGRAM}.bc -o ${PROGRAM}.o
+	${FLINK} ${FLINKFLAGS} -o ${PROGRAM} ${PROGRAM}.o ${FMPI_LIB}
 
 cg.o:		cg.f  mpinpb.h npbparams.h
-	${FCOMPILE} cg.f
+	${FCOMPILE} ${FFLAG} cg.f -o $@
 
 clean:
 	- rm -f *.o *~ 

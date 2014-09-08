@@ -55,7 +55,9 @@ exec: $(OBJS)
 	fi
 
 bt-bt: ${OBJS} btio.o
-	${FLINK} ${FLINKFLAGS} -o ${PROGRAM} ${OBJS} btio.o ${FMPI_LIB}
+	llvm-link $(OBJS) btio.o -o $(PROGRAM).bc
+	llc -filetype=obj $(PROGRAM).bc -o $(PROGRAM).o
+	${FLINK} ${FLINKFLAGS} -o ${PROGRAM} ${PROGRAM}.o ${FMPI_LIB}
 
 bt-full: ${OBJS} full_mpiio.o btio_common.o
 	${FLINK} ${FLINKFLAGS} -o ${PROGRAM}.mpi_io_full ${OBJS} btio_common.o full_mpiio.o ${FMPI_LIB}
@@ -70,7 +72,7 @@ bt-epio: ${OBJS} epio.o btio_common.o
 	${FLINK} ${FLINKFLAGS} -o ${PROGRAM}.ep_io ${OBJS} btio_common.o epio.o ${FMPI_LIB}
 
 .f.o:
-	${FCOMPILE} $<
+	${FCOMPILE} $< -o $@
 
 .c.o:
 	${CCOMPILE} $<
