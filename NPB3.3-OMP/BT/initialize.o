@@ -1,0 +1,1025 @@
+; ModuleID = 'initialize.f'
+target datalayout = "e-p:64:64:64-S128-i1:8:8-i8:8:8-i16:16:16-i32:32:32-i64:64:64-f16:16:16-f32:32:32-f64:64:64-f128:128:128-v64:64:64-v128:128:128-a0:0:64-s0:64:64-f80:128:128-n8:16:32:64"
+target triple = "x86_64-unknown-linux-gnu"
+
+module asm "\09.ident\09\22GCC: (GNU) 4.8.2 20140206 (prerelease) LLVM: 3.4\22"
+
+%0 = type { double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, [65 x double], double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double }
+%1 = type { [1352000 x double], [270400 x double], [270400 x double], [270400 x double], [270400 x double], [270400 x double], [270400 x double], [1352000 x double], [1352000 x double] }
+%2 = type { double, [3 x i32], i32 }
+%3 = type { [65 x double], [65 x double], [325 x double], [325 x double] }
+
+@constants_ = common unnamed_addr global %0 zeroinitializer, align 32
+@fields_ = common unnamed_addr global %1 zeroinitializer, align 32
+@global_ = common unnamed_addr global %2 zeroinitializer, align 16
+@work_1d_ = common unnamed_addr global %3 zeroinitializer, align 32
+
+; Function Attrs: nounwind uwtable
+define void @initialize_() unnamed_addr #0 {
+entry:
+  %eta = alloca double
+  %i = alloca i32
+  %ix = alloca i32
+  %iy = alloca i32
+  %iz = alloca i32
+  %j = alloca i32
+  %k = alloca i32
+  %m = alloca i32
+  %peta = alloca double
+  %pface = alloca [30 x double]
+  %pxi = alloca double
+  %pzeta = alloca double
+  %temp = alloca [5 x double]
+  %xi = alloca double
+  %zeta = alloca double
+  %D.2134 = alloca i32
+  %D.2148 = alloca i32
+  %D.2137 = alloca i32
+  %D.2147 = alloca i32
+  %D.2140 = alloca i32
+  %D.2146 = alloca i32
+  %D.2145 = alloca i32
+  %D.2149 = alloca i32
+  %D.2176 = alloca i32
+  %D.2152 = alloca i32
+  %D.2175 = alloca i32
+  %D.2155 = alloca i32
+  %D.2174 = alloca i32
+  %D.2162 = alloca i32
+  %D.2160 = alloca double
+  %D.2166 = alloca i32
+  %D.2165 = alloca double
+  %D.2170 = alloca i32
+  %D.2169 = alloca double
+  %D.2173 = alloca i32
+  %D.2177 = alloca i32
+  %D.2187 = alloca i32
+  %D.2180 = alloca i32
+  %D.2186 = alloca i32
+  %D.2185 = alloca i32
+  %D.2188 = alloca i32
+  %D.2198 = alloca i32
+  %D.2191 = alloca i32
+  %D.2197 = alloca i32
+  %D.2196 = alloca i32
+  %D.2199 = alloca i32
+  %D.2209 = alloca i32
+  %D.2202 = alloca i32
+  %D.2208 = alloca i32
+  %D.2207 = alloca i32
+  %D.2210 = alloca i32
+  %D.2220 = alloca i32
+  %D.2213 = alloca i32
+  %D.2219 = alloca i32
+  %D.2218 = alloca i32
+  %D.2221 = alloca i32
+  %D.2231 = alloca i32
+  %D.2224 = alloca i32
+  %D.2230 = alloca i32
+  %D.2229 = alloca i32
+  %D.2232 = alloca i32
+  %D.2242 = alloca i32
+  %D.2235 = alloca i32
+  %D.2241 = alloca i32
+  %D.2240 = alloca i32
+  %"alloca point" = bitcast i32 0 to i32
+  %"ssa point" = bitcast i32 0 to i32
+  br label %"2"
+
+"2":                                              ; preds = %entry
+  %0 = load i32* getelementptr inbounds (%2* @global_, i64 0, i32 1, i64 2), align 4
+  %1 = add i32 %0, -1
+  %2 = icmp sle i32 0, %1
+  br i1 %2, label %"3", label %"14"
+
+"3":                                              ; preds = %"13", %"2"
+  %3 = phi i32 [ %35, %"13" ], [ 0, %"2" ]
+  %4 = load i32* getelementptr inbounds (%2* @global_, i64 0, i32 1, i64 1), align 4
+  %5 = add i32 %4, -1
+  %6 = icmp sle i32 0, %5
+  br i1 %6, label %"4", label %"12"
+
+"4":                                              ; preds = %"11", %"3"
+  %7 = phi i32 [ %32, %"11" ], [ 0, %"3" ]
+  %8 = load i32* getelementptr inbounds (%2* @global_, i64 0, i32 1, i64 0), align 4
+  %9 = add i32 %8, -1
+  %10 = icmp sle i32 0, %9
+  br i1 %10, label %"5", label %"10"
+
+"5":                                              ; preds = %"9", %"4"
+  %11 = phi i32 [ %29, %"9" ], [ 0, %"4" ]
+  br i1 true, label %"6", label %"8"
+
+"6":                                              ; preds = %"7", %"5"
+  %12 = phi i32 [ %26, %"7" ], [ 1, %"5" ]
+  %13 = sext i32 %3 to i64
+  %14 = mul i64 %13, 21125
+  %15 = sext i32 %7 to i64
+  %16 = mul i64 %15, 325
+  %17 = add i64 %14, %16
+  %18 = sext i32 %11 to i64
+  %19 = mul i64 %18, 5
+  %20 = add i64 %17, %19
+  %21 = sext i32 %12 to i64
+  %22 = add i64 %20, %21
+  %23 = add i64 %22, -1
+  %24 = getelementptr double* getelementptr inbounds (%1* @fields_, i64 0, i32 0, i64 0), i64 %23
+  store double 1.000000e+00, double* %24, align 8
+  %25 = icmp eq i32 %12, 5
+  %26 = add i32 %12, 1
+  %27 = icmp ne i1 %25, false
+  br i1 %27, label %"8", label %"7"
+
+"7":                                              ; preds = %"6"
+  br label %"6"
+
+"8":                                              ; preds = %"6", %"5"
+  %28 = icmp eq i32 %11, %9
+  %29 = add i32 %11, 1
+  %30 = icmp ne i1 %28, false
+  br i1 %30, label %"10", label %"9"
+
+"9":                                              ; preds = %"8"
+  br label %"5"
+
+"10":                                             ; preds = %"8", %"4"
+  %31 = icmp eq i32 %7, %5
+  %32 = add i32 %7, 1
+  %33 = icmp ne i1 %31, false
+  br i1 %33, label %"12", label %"11"
+
+"11":                                             ; preds = %"10"
+  br label %"4"
+
+"12":                                             ; preds = %"10", %"3"
+  %34 = icmp eq i32 %3, %1
+  %35 = add i32 %3, 1
+  %36 = icmp ne i1 %34, false
+  br i1 %36, label %"14", label %"13"
+
+"13":                                             ; preds = %"12"
+  br label %"3"
+
+"14":                                             ; preds = %"12", %"2"
+  %37 = load i32* getelementptr inbounds (%2* @global_, i64 0, i32 1, i64 2), align 4
+  %38 = add i32 %37, -1
+  %39 = icmp sle i32 0, %38
+  br i1 %39, label %"15", label %"35"
+
+"15":                                             ; preds = %"34", %"14"
+  %40 = phi i32 [ %176, %"34" ], [ 0, %"14" ]
+  %41 = sitofp i32 %40 to double
+  %42 = load double* getelementptr inbounds (%0* @constants_, i64 0, i32 62), align 16
+  %43 = fmul double %41, %42
+  store double %43, double* %zeta, align 8
+  %44 = load i32* getelementptr inbounds (%2* @global_, i64 0, i32 1, i64 1), align 4
+  %45 = add i32 %44, -1
+  %46 = icmp sle i32 0, %45
+  br i1 %46, label %"16", label %"33"
+
+"16":                                             ; preds = %"32", %"15"
+  %47 = phi i32 [ %173, %"32" ], [ 0, %"15" ]
+  %48 = sitofp i32 %47 to double
+  %49 = load double* getelementptr inbounds (%0* @constants_, i64 0, i32 61), align 8
+  %50 = fmul double %48, %49
+  store double %50, double* %eta, align 8
+  %51 = load i32* getelementptr inbounds (%2* @global_, i64 0, i32 1, i64 0), align 4
+  %52 = add i32 %51, -1
+  %53 = icmp sle i32 0, %52
+  br i1 %53, label %"17", label %"31"
+
+"17":                                             ; preds = %"30", %"16"
+  %54 = phi i32 [ %170, %"30" ], [ 0, %"16" ]
+  %55 = sitofp i32 %54 to double
+  %56 = load double* getelementptr inbounds (%0* @constants_, i64 0, i32 60), align 16
+  %57 = fmul double %55, %56
+  store double %57, double* %xi, align 8
+  br i1 true, label %"18", label %"20"
+
+"18":                                             ; preds = %"19", %"17"
+  %58 = phi i32 [ %68, %"19" ], [ 1, %"17" ]
+  %59 = add i32 %58, -1
+  %60 = sitofp i32 %59 to double
+  store double %60, double* %D.2160, align 8
+  %61 = sext i32 %58 to i64
+  %62 = add i64 %61, -1
+  %63 = mul i64 %62, 15
+  %64 = bitcast [30 x double]* %pface to double*
+  %65 = getelementptr double* %64, i64 %63
+  call void bitcast (void (...)* @exact_solution_ to void (double*, double*, double*, double*)*)(double* %D.2160, double* %eta, double* %zeta, double* %65) #1
+  %66 = bitcast double* %D.2160 to i8*
+  call void @llvm.lifetime.end(i64 8, i8* %66)
+  %67 = icmp eq i32 %58, 2
+  %68 = add i32 %58, 1
+  %69 = icmp ne i1 %67, false
+  br i1 %69, label %"20", label %"19"
+
+"19":                                             ; preds = %"18"
+  br label %"18"
+
+"20":                                             ; preds = %"18", %"17"
+  br i1 true, label %"21", label %"23"
+
+"21":                                             ; preds = %"22", %"20"
+  %70 = phi i32 [ %80, %"22" ], [ 1, %"20" ]
+  %71 = add i32 %70, -1
+  %72 = sitofp i32 %71 to double
+  store double %72, double* %D.2165, align 8
+  %73 = sext i32 %70 to i64
+  %74 = mul i64 %73, 15
+  %75 = add i64 %74, -10
+  %76 = bitcast [30 x double]* %pface to double*
+  %77 = getelementptr double* %76, i64 %75
+  call void bitcast (void (...)* @exact_solution_ to void (double*, double*, double*, double*)*)(double* %xi, double* %D.2165, double* %zeta, double* %77) #1
+  %78 = bitcast double* %D.2165 to i8*
+  call void @llvm.lifetime.end(i64 8, i8* %78)
+  %79 = icmp eq i32 %70, 2
+  %80 = add i32 %70, 1
+  %81 = icmp ne i1 %79, false
+  br i1 %81, label %"23", label %"22"
+
+"22":                                             ; preds = %"21"
+  br label %"21"
+
+"23":                                             ; preds = %"21", %"20"
+  br i1 true, label %"24", label %"26"
+
+"24":                                             ; preds = %"25", %"23"
+  %82 = phi i32 [ %92, %"25" ], [ 1, %"23" ]
+  %83 = add i32 %82, -1
+  %84 = sitofp i32 %83 to double
+  store double %84, double* %D.2169, align 8
+  %85 = sext i32 %82 to i64
+  %86 = mul i64 %85, 15
+  %87 = add i64 %86, -5
+  %88 = bitcast [30 x double]* %pface to double*
+  %89 = getelementptr double* %88, i64 %87
+  call void bitcast (void (...)* @exact_solution_ to void (double*, double*, double*, double*)*)(double* %xi, double* %eta, double* %D.2169, double* %89) #1
+  %90 = bitcast double* %D.2169 to i8*
+  call void @llvm.lifetime.end(i64 8, i8* %90)
+  %91 = icmp eq i32 %82, 2
+  %92 = add i32 %82, 1
+  %93 = icmp ne i1 %91, false
+  br i1 %93, label %"26", label %"25"
+
+"25":                                             ; preds = %"24"
+  br label %"24"
+
+"26":                                             ; preds = %"24", %"23"
+  br i1 true, label %"27", label %"29"
+
+"27":                                             ; preds = %"28", %"26"
+  %94 = phi i32 [ %167, %"28" ], [ 1, %"26" ]
+  %95 = sext i32 %94 to i64
+  %96 = add i64 %95, 14
+  %97 = bitcast [30 x double]* %pface to double*
+  %98 = getelementptr double* %97, i64 %96
+  %99 = load double* %98, align 8
+  %100 = load double* %xi, align 8
+  %101 = fmul double %99, %100
+  %102 = load double* %xi, align 8
+  %103 = fsub double 1.000000e+00, %102
+  %104 = sext i32 %94 to i64
+  %105 = add i64 %104, -1
+  %106 = bitcast [30 x double]* %pface to double*
+  %107 = getelementptr double* %106, i64 %105
+  %108 = load double* %107, align 8
+  %109 = fmul double %103, %108
+  %110 = fadd double %101, %109
+  %111 = sext i32 %94 to i64
+  %112 = add i64 %111, 19
+  %113 = bitcast [30 x double]* %pface to double*
+  %114 = getelementptr double* %113, i64 %112
+  %115 = load double* %114, align 8
+  %116 = load double* %eta, align 8
+  %117 = fmul double %115, %116
+  %118 = load double* %eta, align 8
+  %119 = fsub double 1.000000e+00, %118
+  %120 = sext i32 %94 to i64
+  %121 = add i64 %120, 4
+  %122 = bitcast [30 x double]* %pface to double*
+  %123 = getelementptr double* %122, i64 %121
+  %124 = load double* %123, align 8
+  %125 = fmul double %119, %124
+  %126 = fadd double %117, %125
+  %127 = sext i32 %94 to i64
+  %128 = add i64 %127, 24
+  %129 = bitcast [30 x double]* %pface to double*
+  %130 = getelementptr double* %129, i64 %128
+  %131 = load double* %130, align 8
+  %132 = load double* %zeta, align 8
+  %133 = fmul double %131, %132
+  %134 = load double* %zeta, align 8
+  %135 = fsub double 1.000000e+00, %134
+  %136 = sext i32 %94 to i64
+  %137 = add i64 %136, 9
+  %138 = bitcast [30 x double]* %pface to double*
+  %139 = getelementptr double* %138, i64 %137
+  %140 = load double* %139, align 8
+  %141 = fmul double %135, %140
+  %142 = fadd double %133, %141
+  %143 = sext i32 %40 to i64
+  %144 = mul i64 %143, 21125
+  %145 = sext i32 %47 to i64
+  %146 = mul i64 %145, 325
+  %147 = add i64 %144, %146
+  %148 = sext i32 %54 to i64
+  %149 = mul i64 %148, 5
+  %150 = add i64 %147, %149
+  %151 = sext i32 %94 to i64
+  %152 = add i64 %150, %151
+  %153 = add i64 %152, -1
+  %154 = fadd double %110, %126
+  %155 = fadd double %154, %142
+  %156 = fmul double %110, %126
+  %157 = fsub double %155, %156
+  %158 = fmul double %110, %142
+  %159 = fsub double %157, %158
+  %160 = fmul double %126, %142
+  %161 = fsub double %159, %160
+  %162 = fmul double %110, %126
+  %163 = fmul double %162, %142
+  %164 = fadd double %161, %163
+  %165 = getelementptr double* getelementptr inbounds (%1* @fields_, i64 0, i32 0, i64 0), i64 %153
+  store double %164, double* %165, align 8
+  %166 = icmp eq i32 %94, 5
+  %167 = add i32 %94, 1
+  %168 = icmp ne i1 %166, false
+  br i1 %168, label %"29", label %"28"
+
+"28":                                             ; preds = %"27"
+  br label %"27"
+
+"29":                                             ; preds = %"27", %"26"
+  %169 = icmp eq i32 %54, %52
+  %170 = add i32 %54, 1
+  %171 = icmp ne i1 %169, false
+  br i1 %171, label %"31", label %"30"
+
+"30":                                             ; preds = %"29"
+  br label %"17"
+
+"31":                                             ; preds = %"29", %"16"
+  %172 = icmp eq i32 %47, %45
+  %173 = add i32 %47, 1
+  %174 = icmp ne i1 %172, false
+  br i1 %174, label %"33", label %"32"
+
+"32":                                             ; preds = %"31"
+  br label %"16"
+
+"33":                                             ; preds = %"31", %"15"
+  %175 = icmp eq i32 %40, %38
+  %176 = add i32 %40, 1
+  %177 = icmp ne i1 %175, false
+  br i1 %177, label %"35", label %"34"
+
+"34":                                             ; preds = %"33"
+  br label %"15"
+
+"35":                                             ; preds = %"33", %"14"
+  store double 0.000000e+00, double* %xi, align 8
+  %178 = load i32* getelementptr inbounds (%2* @global_, i64 0, i32 1, i64 2), align 4
+  %179 = add i32 %178, -1
+  %180 = icmp sle i32 0, %179
+  br i1 %180, label %"36", label %"44"
+
+"36":                                             ; preds = %"43", %"35"
+  %181 = phi i32 [ %215, %"43" ], [ 0, %"35" ]
+  %182 = sitofp i32 %181 to double
+  %183 = load double* getelementptr inbounds (%0* @constants_, i64 0, i32 62), align 16
+  %184 = fmul double %182, %183
+  store double %184, double* %zeta, align 8
+  %185 = load i32* getelementptr inbounds (%2* @global_, i64 0, i32 1, i64 1), align 4
+  %186 = add i32 %185, -1
+  %187 = icmp sle i32 0, %186
+  br i1 %187, label %"37", label %"42"
+
+"37":                                             ; preds = %"41", %"36"
+  %188 = phi i32 [ %212, %"41" ], [ 0, %"36" ]
+  %189 = sitofp i32 %188 to double
+  %190 = load double* getelementptr inbounds (%0* @constants_, i64 0, i32 61), align 8
+  %191 = fmul double %189, %190
+  store double %191, double* %eta, align 8
+  call void bitcast (void (...)* @exact_solution_ to void (double*, double*, double*, [5 x double]*)*)(double* %xi, double* %eta, double* %zeta, [5 x double]* %temp) #1
+  br i1 true, label %"38", label %"40"
+
+"38":                                             ; preds = %"39", %"37"
+  %192 = phi i32 [ %209, %"39" ], [ 1, %"37" ]
+  %193 = sext i32 %181 to i64
+  %194 = mul i64 %193, 21125
+  %195 = sext i32 %188 to i64
+  %196 = mul i64 %195, 325
+  %197 = add i64 %194, %196
+  %198 = add i64 %197, 0
+  %199 = sext i32 %192 to i64
+  %200 = add i64 %198, %199
+  %201 = add i64 %200, -1
+  %202 = sext i32 %192 to i64
+  %203 = add i64 %202, -1
+  %204 = bitcast [5 x double]* %temp to double*
+  %205 = getelementptr double* %204, i64 %203
+  %206 = load double* %205, align 8
+  %207 = getelementptr double* getelementptr inbounds (%1* @fields_, i64 0, i32 0, i64 0), i64 %201
+  store double %206, double* %207, align 8
+  %208 = icmp eq i32 %192, 5
+  %209 = add i32 %192, 1
+  %210 = icmp ne i1 %208, false
+  br i1 %210, label %"40", label %"39"
+
+"39":                                             ; preds = %"38"
+  br label %"38"
+
+"40":                                             ; preds = %"38", %"37"
+  %211 = icmp eq i32 %188, %186
+  %212 = add i32 %188, 1
+  %213 = icmp ne i1 %211, false
+  br i1 %213, label %"42", label %"41"
+
+"41":                                             ; preds = %"40"
+  br label %"37"
+
+"42":                                             ; preds = %"40", %"36"
+  %214 = icmp eq i32 %181, %179
+  %215 = add i32 %181, 1
+  %216 = icmp ne i1 %214, false
+  br i1 %216, label %"44", label %"43"
+
+"43":                                             ; preds = %"42"
+  br label %"36"
+
+"44":                                             ; preds = %"42", %"35"
+  %217 = load i32* getelementptr inbounds (%2* @global_, i64 0, i32 1, i64 0), align 4
+  %218 = add i32 %217, -1
+  store double 1.000000e+00, double* %xi, align 8
+  %219 = load i32* getelementptr inbounds (%2* @global_, i64 0, i32 1, i64 2), align 4
+  %220 = add i32 %219, -1
+  %221 = icmp sle i32 0, %220
+  br i1 %221, label %"45", label %"53"
+
+"45":                                             ; preds = %"52", %"44"
+  %222 = phi i32 [ %258, %"52" ], [ 0, %"44" ]
+  %223 = sitofp i32 %222 to double
+  %224 = load double* getelementptr inbounds (%0* @constants_, i64 0, i32 62), align 16
+  %225 = fmul double %223, %224
+  store double %225, double* %zeta, align 8
+  %226 = load i32* getelementptr inbounds (%2* @global_, i64 0, i32 1, i64 1), align 4
+  %227 = add i32 %226, -1
+  %228 = icmp sle i32 0, %227
+  br i1 %228, label %"46", label %"51"
+
+"46":                                             ; preds = %"50", %"45"
+  %229 = phi i32 [ %255, %"50" ], [ 0, %"45" ]
+  %230 = sitofp i32 %229 to double
+  %231 = load double* getelementptr inbounds (%0* @constants_, i64 0, i32 61), align 8
+  %232 = fmul double %230, %231
+  store double %232, double* %eta, align 8
+  call void bitcast (void (...)* @exact_solution_ to void (double*, double*, double*, [5 x double]*)*)(double* %xi, double* %eta, double* %zeta, [5 x double]* %temp) #1
+  br i1 true, label %"47", label %"49"
+
+"47":                                             ; preds = %"48", %"46"
+  %233 = phi i32 [ %252, %"48" ], [ 1, %"46" ]
+  %234 = sext i32 %222 to i64
+  %235 = mul i64 %234, 21125
+  %236 = sext i32 %229 to i64
+  %237 = mul i64 %236, 325
+  %238 = add i64 %235, %237
+  %239 = sext i32 %218 to i64
+  %240 = mul i64 %239, 5
+  %241 = add i64 %238, %240
+  %242 = sext i32 %233 to i64
+  %243 = add i64 %241, %242
+  %244 = add i64 %243, -1
+  %245 = sext i32 %233 to i64
+  %246 = add i64 %245, -1
+  %247 = bitcast [5 x double]* %temp to double*
+  %248 = getelementptr double* %247, i64 %246
+  %249 = load double* %248, align 8
+  %250 = getelementptr double* getelementptr inbounds (%1* @fields_, i64 0, i32 0, i64 0), i64 %244
+  store double %249, double* %250, align 8
+  %251 = icmp eq i32 %233, 5
+  %252 = add i32 %233, 1
+  %253 = icmp ne i1 %251, false
+  br i1 %253, label %"49", label %"48"
+
+"48":                                             ; preds = %"47"
+  br label %"47"
+
+"49":                                             ; preds = %"47", %"46"
+  %254 = icmp eq i32 %229, %227
+  %255 = add i32 %229, 1
+  %256 = icmp ne i1 %254, false
+  br i1 %256, label %"51", label %"50"
+
+"50":                                             ; preds = %"49"
+  br label %"46"
+
+"51":                                             ; preds = %"49", %"45"
+  %257 = icmp eq i32 %222, %220
+  %258 = add i32 %222, 1
+  %259 = icmp ne i1 %257, false
+  br i1 %259, label %"53", label %"52"
+
+"52":                                             ; preds = %"51"
+  br label %"45"
+
+"53":                                             ; preds = %"51", %"44"
+  store double 0.000000e+00, double* %eta, align 8
+  %260 = load i32* getelementptr inbounds (%2* @global_, i64 0, i32 1, i64 2), align 4
+  %261 = add i32 %260, -1
+  %262 = icmp sle i32 0, %261
+  br i1 %262, label %"54", label %"62"
+
+"54":                                             ; preds = %"61", %"53"
+  %263 = phi i32 [ %297, %"61" ], [ 0, %"53" ]
+  %264 = sitofp i32 %263 to double
+  %265 = load double* getelementptr inbounds (%0* @constants_, i64 0, i32 62), align 16
+  %266 = fmul double %264, %265
+  store double %266, double* %zeta, align 8
+  %267 = load i32* getelementptr inbounds (%2* @global_, i64 0, i32 1, i64 0), align 4
+  %268 = add i32 %267, -1
+  %269 = icmp sle i32 0, %268
+  br i1 %269, label %"55", label %"60"
+
+"55":                                             ; preds = %"59", %"54"
+  %270 = phi i32 [ %294, %"59" ], [ 0, %"54" ]
+  %271 = sitofp i32 %270 to double
+  %272 = load double* getelementptr inbounds (%0* @constants_, i64 0, i32 60), align 16
+  %273 = fmul double %271, %272
+  store double %273, double* %xi, align 8
+  call void bitcast (void (...)* @exact_solution_ to void (double*, double*, double*, [5 x double]*)*)(double* %xi, double* %eta, double* %zeta, [5 x double]* %temp) #1
+  br i1 true, label %"56", label %"58"
+
+"56":                                             ; preds = %"57", %"55"
+  %274 = phi i32 [ %291, %"57" ], [ 1, %"55" ]
+  %275 = sext i32 %263 to i64
+  %276 = mul i64 %275, 21125
+  %277 = add i64 %276, 0
+  %278 = sext i32 %270 to i64
+  %279 = mul i64 %278, 5
+  %280 = add i64 %277, %279
+  %281 = sext i32 %274 to i64
+  %282 = add i64 %280, %281
+  %283 = add i64 %282, -1
+  %284 = sext i32 %274 to i64
+  %285 = add i64 %284, -1
+  %286 = bitcast [5 x double]* %temp to double*
+  %287 = getelementptr double* %286, i64 %285
+  %288 = load double* %287, align 8
+  %289 = getelementptr double* getelementptr inbounds (%1* @fields_, i64 0, i32 0, i64 0), i64 %283
+  store double %288, double* %289, align 8
+  %290 = icmp eq i32 %274, 5
+  %291 = add i32 %274, 1
+  %292 = icmp ne i1 %290, false
+  br i1 %292, label %"58", label %"57"
+
+"57":                                             ; preds = %"56"
+  br label %"56"
+
+"58":                                             ; preds = %"56", %"55"
+  %293 = icmp eq i32 %270, %268
+  %294 = add i32 %270, 1
+  %295 = icmp ne i1 %293, false
+  br i1 %295, label %"60", label %"59"
+
+"59":                                             ; preds = %"58"
+  br label %"55"
+
+"60":                                             ; preds = %"58", %"54"
+  %296 = icmp eq i32 %263, %261
+  %297 = add i32 %263, 1
+  %298 = icmp ne i1 %296, false
+  br i1 %298, label %"62", label %"61"
+
+"61":                                             ; preds = %"60"
+  br label %"54"
+
+"62":                                             ; preds = %"60", %"53"
+  %299 = load i32* getelementptr inbounds (%2* @global_, i64 0, i32 1, i64 1), align 4
+  %300 = add i32 %299, -1
+  store double 1.000000e+00, double* %eta, align 8
+  %301 = load i32* getelementptr inbounds (%2* @global_, i64 0, i32 1, i64 2), align 4
+  %302 = add i32 %301, -1
+  %303 = icmp sle i32 0, %302
+  br i1 %303, label %"63", label %"71"
+
+"63":                                             ; preds = %"70", %"62"
+  %304 = phi i32 [ %340, %"70" ], [ 0, %"62" ]
+  %305 = sitofp i32 %304 to double
+  %306 = load double* getelementptr inbounds (%0* @constants_, i64 0, i32 62), align 16
+  %307 = fmul double %305, %306
+  store double %307, double* %zeta, align 8
+  %308 = load i32* getelementptr inbounds (%2* @global_, i64 0, i32 1, i64 0), align 4
+  %309 = add i32 %308, -1
+  %310 = icmp sle i32 0, %309
+  br i1 %310, label %"64", label %"69"
+
+"64":                                             ; preds = %"68", %"63"
+  %311 = phi i32 [ %337, %"68" ], [ 0, %"63" ]
+  %312 = sitofp i32 %311 to double
+  %313 = load double* getelementptr inbounds (%0* @constants_, i64 0, i32 60), align 16
+  %314 = fmul double %312, %313
+  store double %314, double* %xi, align 8
+  call void bitcast (void (...)* @exact_solution_ to void (double*, double*, double*, [5 x double]*)*)(double* %xi, double* %eta, double* %zeta, [5 x double]* %temp) #1
+  br i1 true, label %"65", label %"67"
+
+"65":                                             ; preds = %"66", %"64"
+  %315 = phi i32 [ %334, %"66" ], [ 1, %"64" ]
+  %316 = sext i32 %304 to i64
+  %317 = mul i64 %316, 21125
+  %318 = sext i32 %300 to i64
+  %319 = mul i64 %318, 325
+  %320 = add i64 %317, %319
+  %321 = sext i32 %311 to i64
+  %322 = mul i64 %321, 5
+  %323 = add i64 %320, %322
+  %324 = sext i32 %315 to i64
+  %325 = add i64 %323, %324
+  %326 = add i64 %325, -1
+  %327 = sext i32 %315 to i64
+  %328 = add i64 %327, -1
+  %329 = bitcast [5 x double]* %temp to double*
+  %330 = getelementptr double* %329, i64 %328
+  %331 = load double* %330, align 8
+  %332 = getelementptr double* getelementptr inbounds (%1* @fields_, i64 0, i32 0, i64 0), i64 %326
+  store double %331, double* %332, align 8
+  %333 = icmp eq i32 %315, 5
+  %334 = add i32 %315, 1
+  %335 = icmp ne i1 %333, false
+  br i1 %335, label %"67", label %"66"
+
+"66":                                             ; preds = %"65"
+  br label %"65"
+
+"67":                                             ; preds = %"65", %"64"
+  %336 = icmp eq i32 %311, %309
+  %337 = add i32 %311, 1
+  %338 = icmp ne i1 %336, false
+  br i1 %338, label %"69", label %"68"
+
+"68":                                             ; preds = %"67"
+  br label %"64"
+
+"69":                                             ; preds = %"67", %"63"
+  %339 = icmp eq i32 %304, %302
+  %340 = add i32 %304, 1
+  %341 = icmp ne i1 %339, false
+  br i1 %341, label %"71", label %"70"
+
+"70":                                             ; preds = %"69"
+  br label %"63"
+
+"71":                                             ; preds = %"69", %"62"
+  store double 0.000000e+00, double* %zeta, align 8
+  %342 = load i32* getelementptr inbounds (%2* @global_, i64 0, i32 1, i64 1), align 4
+  %343 = add i32 %342, -1
+  %344 = icmp sle i32 0, %343
+  br i1 %344, label %"72", label %"80"
+
+"72":                                             ; preds = %"79", %"71"
+  %345 = phi i32 [ %379, %"79" ], [ 0, %"71" ]
+  %346 = sitofp i32 %345 to double
+  %347 = load double* getelementptr inbounds (%0* @constants_, i64 0, i32 61), align 8
+  %348 = fmul double %346, %347
+  store double %348, double* %eta, align 8
+  %349 = load i32* getelementptr inbounds (%2* @global_, i64 0, i32 1, i64 0), align 4
+  %350 = add i32 %349, -1
+  %351 = icmp sle i32 0, %350
+  br i1 %351, label %"73", label %"78"
+
+"73":                                             ; preds = %"77", %"72"
+  %352 = phi i32 [ %376, %"77" ], [ 0, %"72" ]
+  %353 = sitofp i32 %352 to double
+  %354 = load double* getelementptr inbounds (%0* @constants_, i64 0, i32 60), align 16
+  %355 = fmul double %353, %354
+  store double %355, double* %xi, align 8
+  call void bitcast (void (...)* @exact_solution_ to void (double*, double*, double*, [5 x double]*)*)(double* %xi, double* %eta, double* %zeta, [5 x double]* %temp) #1
+  br i1 true, label %"74", label %"76"
+
+"74":                                             ; preds = %"75", %"73"
+  %356 = phi i32 [ %373, %"75" ], [ 1, %"73" ]
+  %357 = sext i32 %345 to i64
+  %358 = mul i64 %357, 325
+  %359 = add i64 0, %358
+  %360 = sext i32 %352 to i64
+  %361 = mul i64 %360, 5
+  %362 = add i64 %359, %361
+  %363 = sext i32 %356 to i64
+  %364 = add i64 %362, %363
+  %365 = add i64 %364, -1
+  %366 = sext i32 %356 to i64
+  %367 = add i64 %366, -1
+  %368 = bitcast [5 x double]* %temp to double*
+  %369 = getelementptr double* %368, i64 %367
+  %370 = load double* %369, align 8
+  %371 = getelementptr double* getelementptr inbounds (%1* @fields_, i64 0, i32 0, i64 0), i64 %365
+  store double %370, double* %371, align 8
+  %372 = icmp eq i32 %356, 5
+  %373 = add i32 %356, 1
+  %374 = icmp ne i1 %372, false
+  br i1 %374, label %"76", label %"75"
+
+"75":                                             ; preds = %"74"
+  br label %"74"
+
+"76":                                             ; preds = %"74", %"73"
+  %375 = icmp eq i32 %352, %350
+  %376 = add i32 %352, 1
+  %377 = icmp ne i1 %375, false
+  br i1 %377, label %"78", label %"77"
+
+"77":                                             ; preds = %"76"
+  br label %"73"
+
+"78":                                             ; preds = %"76", %"72"
+  %378 = icmp eq i32 %345, %343
+  %379 = add i32 %345, 1
+  %380 = icmp ne i1 %378, false
+  br i1 %380, label %"80", label %"79"
+
+"79":                                             ; preds = %"78"
+  br label %"72"
+
+"80":                                             ; preds = %"78", %"71"
+  %381 = load i32* getelementptr inbounds (%2* @global_, i64 0, i32 1, i64 2), align 4
+  %382 = add i32 %381, -1
+  store double 1.000000e+00, double* %zeta, align 8
+  %383 = load i32* getelementptr inbounds (%2* @global_, i64 0, i32 1, i64 1), align 4
+  %384 = add i32 %383, -1
+  %385 = icmp sle i32 0, %384
+  br i1 %385, label %"81", label %"89"
+
+"81":                                             ; preds = %"88", %"80"
+  %386 = phi i32 [ %422, %"88" ], [ 0, %"80" ]
+  %387 = sitofp i32 %386 to double
+  %388 = load double* getelementptr inbounds (%0* @constants_, i64 0, i32 61), align 8
+  %389 = fmul double %387, %388
+  store double %389, double* %eta, align 8
+  %390 = load i32* getelementptr inbounds (%2* @global_, i64 0, i32 1, i64 0), align 4
+  %391 = add i32 %390, -1
+  %392 = icmp sle i32 0, %391
+  br i1 %392, label %"82", label %"87"
+
+"82":                                             ; preds = %"86", %"81"
+  %393 = phi i32 [ %419, %"86" ], [ 0, %"81" ]
+  %394 = sitofp i32 %393 to double
+  %395 = load double* getelementptr inbounds (%0* @constants_, i64 0, i32 60), align 16
+  %396 = fmul double %394, %395
+  store double %396, double* %xi, align 8
+  call void bitcast (void (...)* @exact_solution_ to void (double*, double*, double*, [5 x double]*)*)(double* %xi, double* %eta, double* %zeta, [5 x double]* %temp) #1
+  br i1 true, label %"83", label %"85"
+
+"83":                                             ; preds = %"84", %"82"
+  %397 = phi i32 [ %416, %"84" ], [ 1, %"82" ]
+  %398 = sext i32 %382 to i64
+  %399 = mul i64 %398, 21125
+  %400 = sext i32 %386 to i64
+  %401 = mul i64 %400, 325
+  %402 = add i64 %399, %401
+  %403 = sext i32 %393 to i64
+  %404 = mul i64 %403, 5
+  %405 = add i64 %402, %404
+  %406 = sext i32 %397 to i64
+  %407 = add i64 %405, %406
+  %408 = add i64 %407, -1
+  %409 = sext i32 %397 to i64
+  %410 = add i64 %409, -1
+  %411 = bitcast [5 x double]* %temp to double*
+  %412 = getelementptr double* %411, i64 %410
+  %413 = load double* %412, align 8
+  %414 = getelementptr double* getelementptr inbounds (%1* @fields_, i64 0, i32 0, i64 0), i64 %408
+  store double %413, double* %414, align 8
+  %415 = icmp eq i32 %397, 5
+  %416 = add i32 %397, 1
+  %417 = icmp ne i1 %415, false
+  br i1 %417, label %"85", label %"84"
+
+"84":                                             ; preds = %"83"
+  br label %"83"
+
+"85":                                             ; preds = %"83", %"82"
+  %418 = icmp eq i32 %393, %391
+  %419 = add i32 %393, 1
+  %420 = icmp ne i1 %418, false
+  br i1 %420, label %"87", label %"86"
+
+"86":                                             ; preds = %"85"
+  br label %"82"
+
+"87":                                             ; preds = %"85", %"81"
+  %421 = icmp eq i32 %386, %384
+  %422 = add i32 %386, 1
+  %423 = icmp ne i1 %421, false
+  br i1 %423, label %"89", label %"88"
+
+"88":                                             ; preds = %"87"
+  br label %"81"
+
+"89":                                             ; preds = %"87", %"80"
+  br label %"90"
+
+"90":                                             ; preds = %"89"
+  %424 = bitcast double* %eta to i8*
+  call void @llvm.lifetime.end(i64 8, i8* %424)
+  %425 = bitcast [30 x double]* %pface to i8*
+  call void @llvm.lifetime.end(i64 240, i8* %425)
+  %426 = bitcast [5 x double]* %temp to i8*
+  call void @llvm.lifetime.end(i64 40, i8* %426)
+  %427 = bitcast double* %xi to i8*
+  call void @llvm.lifetime.end(i64 8, i8* %427)
+  %428 = bitcast double* %zeta to i8*
+  call void @llvm.lifetime.end(i64 8, i8* %428)
+  br label %"91"
+
+"91":                                             ; preds = %"90"
+  br label %return
+
+return:                                           ; preds = %"91"
+  ret void
+}
+
+declare void @exact_solution_(...)
+
+; Function Attrs: nounwind
+declare void @llvm.lifetime.end(i64, i8* nocapture) #1
+
+; Function Attrs: nounwind uwtable
+define void @lhsinit_([0 x double]* noalias %lhs, i32* noalias %ni) unnamed_addr #0 {
+entry:
+  %lhs_addr = alloca [0 x double]*, align 8
+  %ni_addr = alloca i32*, align 8
+  %i = alloca i32
+  %ubound.0 = alloca i64
+  %size.1 = alloca i64
+  %m = alloca i32
+  %n = alloca i32
+  %D.2301 = alloca i64
+  %D.2302 = alloca i128, align 16
+  %D.2303 = alloca i64
+  %D.2294 = alloca i32
+  %D.2293 = alloca i32
+  %D.2300 = alloca i32
+  %D.2299 = alloca i32
+  %"alloca point" = bitcast i32 0 to i32
+  store [0 x double]* %lhs, [0 x double]** %lhs_addr, align 1
+  store i32* %ni, i32** %ni_addr, align 1
+  %0 = load i32** %ni_addr, align 8
+  %1 = load [0 x double]** %lhs_addr, align 8
+  %"ssa point" = bitcast i32 0 to i32
+  br label %"2"
+
+"2":                                              ; preds = %entry
+  %2 = load i32* %0, align 4
+  %3 = sext i32 %2 to i64
+  %4 = add i64 %3, 1
+  %5 = mul i64 %4, 75
+  %6 = icmp sge i64 %5, 0
+  %7 = select i1 %6, i64 %5, i64 0
+  %8 = add i64 %7, -1
+  %9 = zext i64 %7 to i128
+  %10 = mul i128 %9, 64
+  %11 = mul i64 %7, 8
+  br i1 true, label %"3", label %"8"
+
+"3":                                              ; preds = %"7", %"2"
+  %12 = phi i32 [ %50, %"7" ], [ 1, %"2" ]
+  br i1 true, label %"4", label %"6"
+
+"4":                                              ; preds = %"5", %"3"
+  %13 = phi i32 [ %39, %"5" ], [ 1, %"3" ]
+  %14 = sext i32 %13 to i64
+  %15 = mul i64 %14, 5
+  %16 = add i64 0, %15
+  %17 = sext i32 %12 to i64
+  %18 = add i64 %16, %17
+  %19 = add i64 %18, -6
+  %20 = bitcast [0 x double]* %1 to double*
+  %21 = getelementptr double* %20, i64 %19
+  store double 0.000000e+00, double* %21, align 8
+  %22 = sext i32 %13 to i64
+  %23 = mul i64 %22, 5
+  %24 = add i64 0, %23
+  %25 = sext i32 %12 to i64
+  %26 = add i64 %24, %25
+  %27 = add i64 %26, 19
+  %28 = bitcast [0 x double]* %1 to double*
+  %29 = getelementptr double* %28, i64 %27
+  store double 0.000000e+00, double* %29, align 8
+  %30 = sext i32 %13 to i64
+  %31 = mul i64 %30, 5
+  %32 = add i64 0, %31
+  %33 = sext i32 %12 to i64
+  %34 = add i64 %32, %33
+  %35 = add i64 %34, 44
+  %36 = bitcast [0 x double]* %1 to double*
+  %37 = getelementptr double* %36, i64 %35
+  store double 0.000000e+00, double* %37, align 8
+  %38 = icmp eq i32 %13, 5
+  %39 = add i32 %13, 1
+  %40 = icmp ne i1 %38, false
+  br i1 %40, label %"6", label %"5"
+
+"5":                                              ; preds = %"4"
+  br label %"4"
+
+"6":                                              ; preds = %"4", %"3"
+  %41 = sext i32 %12 to i64
+  %42 = mul i64 %41, 5
+  %43 = add i64 0, %42
+  %44 = sext i32 %12 to i64
+  %45 = add i64 %43, %44
+  %46 = add i64 %45, 19
+  %47 = bitcast [0 x double]* %1 to double*
+  %48 = getelementptr double* %47, i64 %46
+  store double 1.000000e+00, double* %48, align 8
+  %49 = icmp eq i32 %12, 5
+  %50 = add i32 %12, 1
+  %51 = icmp ne i1 %49, false
+  br i1 %51, label %"8", label %"7"
+
+"7":                                              ; preds = %"6"
+  br label %"3"
+
+"8":                                              ; preds = %"6", %"2"
+  %52 = load i32* %0, align 4
+  br i1 true, label %"9", label %"14"
+
+"9":                                              ; preds = %"13", %"8"
+  %53 = phi i32 [ %99, %"13" ], [ 1, %"8" ]
+  br i1 true, label %"10", label %"12"
+
+"10":                                             ; preds = %"11", %"9"
+  %54 = phi i32 [ %86, %"11" ], [ 1, %"9" ]
+  %55 = sext i32 %52 to i64
+  %56 = mul i64 %55, 75
+  %57 = sext i32 %54 to i64
+  %58 = mul i64 %57, 5
+  %59 = add i64 %56, %58
+  %60 = sext i32 %53 to i64
+  %61 = add i64 %59, %60
+  %62 = add i64 %61, -6
+  %63 = bitcast [0 x double]* %1 to double*
+  %64 = getelementptr double* %63, i64 %62
+  store double 0.000000e+00, double* %64, align 8
+  %65 = sext i32 %52 to i64
+  %66 = mul i64 %65, 75
+  %67 = sext i32 %54 to i64
+  %68 = mul i64 %67, 5
+  %69 = add i64 %66, %68
+  %70 = sext i32 %53 to i64
+  %71 = add i64 %69, %70
+  %72 = add i64 %71, 19
+  %73 = bitcast [0 x double]* %1 to double*
+  %74 = getelementptr double* %73, i64 %72
+  store double 0.000000e+00, double* %74, align 8
+  %75 = sext i32 %52 to i64
+  %76 = mul i64 %75, 75
+  %77 = sext i32 %54 to i64
+  %78 = mul i64 %77, 5
+  %79 = add i64 %76, %78
+  %80 = sext i32 %53 to i64
+  %81 = add i64 %79, %80
+  %82 = add i64 %81, 44
+  %83 = bitcast [0 x double]* %1 to double*
+  %84 = getelementptr double* %83, i64 %82
+  store double 0.000000e+00, double* %84, align 8
+  %85 = icmp eq i32 %54, 5
+  %86 = add i32 %54, 1
+  %87 = icmp ne i1 %85, false
+  br i1 %87, label %"12", label %"11"
+
+"11":                                             ; preds = %"10"
+  br label %"10"
+
+"12":                                             ; preds = %"10", %"9"
+  %88 = sext i32 %52 to i64
+  %89 = mul i64 %88, 75
+  %90 = sext i32 %53 to i64
+  %91 = mul i64 %90, 5
+  %92 = add i64 %89, %91
+  %93 = sext i32 %53 to i64
+  %94 = add i64 %92, %93
+  %95 = add i64 %94, 19
+  %96 = bitcast [0 x double]* %1 to double*
+  %97 = getelementptr double* %96, i64 %95
+  store double 1.000000e+00, double* %97, align 8
+  %98 = icmp eq i32 %53, 5
+  %99 = add i32 %53, 1
+  %100 = icmp ne i1 %98, false
+  br i1 %100, label %"14", label %"13"
+
+"13":                                             ; preds = %"12"
+  br label %"9"
+
+"14":                                             ; preds = %"12", %"8"
+  br label %"15"
+
+"15":                                             ; preds = %"14"
+  br label %return
+
+return:                                           ; preds = %"15"
+  ret void
+}
+
+attributes #0 = { nounwind uwtable "no-frame-pointer-elim-non-leaf"="true" }
+attributes #1 = { nounwind }

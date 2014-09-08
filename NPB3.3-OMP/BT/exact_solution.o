@@ -1,0 +1,154 @@
+; ModuleID = 'exact_solution.f'
+target datalayout = "e-p:64:64:64-S128-i1:8:8-i8:8:8-i16:16:16-i32:32:32-i64:64:64-f16:16:16-f32:32:32-f64:64:64-f128:128:128-v64:64:64-v128:128:128-a0:0:64-s0:64:64-f80:128:128-n8:16:32:64"
+target triple = "x86_64-unknown-linux-gnu"
+
+module asm "\09.ident\09\22GCC: (GNU) 4.8.2 20140206 (prerelease) LLVM: 3.4\22"
+
+%0 = type { double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, [65 x double], double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double, double }
+%1 = type { [1352000 x double], [270400 x double], [270400 x double], [270400 x double], [270400 x double], [270400 x double], [270400 x double], [1352000 x double], [1352000 x double] }
+%2 = type { double, [3 x i32], i32 }
+%3 = type { [65 x double], [65 x double], [325 x double], [325 x double] }
+
+@constants_ = common unnamed_addr global %0 zeroinitializer, align 32
+@fields_ = common unnamed_addr global %1 zeroinitializer, align 32
+@global_ = common unnamed_addr global %2 zeroinitializer, align 16
+@work_1d_ = common unnamed_addr global %3 zeroinitializer, align 32
+
+; Function Attrs: nounwind uwtable
+define void @exact_solution_(double* noalias %xi, double* noalias %eta, double* noalias %zeta, [5 x double]* noalias %dtemp) unnamed_addr #0 {
+entry:
+  %xi_addr = alloca double*, align 8
+  %eta_addr = alloca double*, align 8
+  %zeta_addr = alloca double*, align 8
+  %dtemp_addr = alloca [5 x double]*, align 8
+  %m = alloca i32
+  %D.2125 = alloca i32
+  %"alloca point" = bitcast i32 0 to i32
+  store double* %xi, double** %xi_addr, align 1
+  store double* %eta, double** %eta_addr, align 1
+  store double* %zeta, double** %zeta_addr, align 1
+  store [5 x double]* %dtemp, [5 x double]** %dtemp_addr, align 1
+  %0 = load double** %xi_addr, align 8
+  %1 = load double** %eta_addr, align 8
+  %2 = load double** %zeta_addr, align 8
+  %3 = load [5 x double]** %dtemp_addr, align 8
+  %"ssa point" = bitcast i32 0 to i32
+  br label %"2"
+
+"2":                                              ; preds = %entry
+  br i1 true, label %"3", label %"5"
+
+"3":                                              ; preds = %"4", %"2"
+  %4 = phi i32 [ %98, %"4" ], [ 1, %"2" ]
+  %5 = sext i32 %4 to i64
+  %6 = add i64 %5, -1
+  %7 = sext i32 %4 to i64
+  %8 = add i64 %7, -1
+  %9 = getelementptr double* getelementptr inbounds (%0* @constants_, i64 0, i32 26, i64 0), i64 %8
+  %10 = load double* %9, align 8
+  %11 = load double* %0, align 8
+  %12 = sext i32 %4 to i64
+  %13 = add i64 %12, 4
+  %14 = getelementptr double* getelementptr inbounds (%0* @constants_, i64 0, i32 26, i64 0), i64 %13
+  %15 = load double* %14, align 8
+  %16 = load double* %0, align 8
+  %17 = sext i32 %4 to i64
+  %18 = add i64 %17, 19
+  %19 = getelementptr double* getelementptr inbounds (%0* @constants_, i64 0, i32 26, i64 0), i64 %18
+  %20 = load double* %19, align 8
+  %21 = load double* %0, align 8
+  %22 = sext i32 %4 to i64
+  %23 = add i64 %22, 34
+  %24 = getelementptr double* getelementptr inbounds (%0* @constants_, i64 0, i32 26, i64 0), i64 %23
+  %25 = load double* %24, align 8
+  %26 = load double* %0, align 8
+  %27 = sext i32 %4 to i64
+  %28 = add i64 %27, 49
+  %29 = getelementptr double* getelementptr inbounds (%0* @constants_, i64 0, i32 26, i64 0), i64 %28
+  %30 = load double* %29, align 8
+  %31 = fmul double %26, %30
+  %32 = fadd double %25, %31
+  %33 = fmul double %21, %32
+  %34 = fadd double %20, %33
+  %35 = fmul double %16, %34
+  %36 = fadd double %15, %35
+  %37 = fmul double %11, %36
+  %38 = fadd double %10, %37
+  %39 = load double* %1, align 8
+  %40 = sext i32 %4 to i64
+  %41 = add i64 %40, 9
+  %42 = getelementptr double* getelementptr inbounds (%0* @constants_, i64 0, i32 26, i64 0), i64 %41
+  %43 = load double* %42, align 8
+  %44 = load double* %1, align 8
+  %45 = sext i32 %4 to i64
+  %46 = add i64 %45, 24
+  %47 = getelementptr double* getelementptr inbounds (%0* @constants_, i64 0, i32 26, i64 0), i64 %46
+  %48 = load double* %47, align 8
+  %49 = load double* %1, align 8
+  %50 = sext i32 %4 to i64
+  %51 = add i64 %50, 39
+  %52 = getelementptr double* getelementptr inbounds (%0* @constants_, i64 0, i32 26, i64 0), i64 %51
+  %53 = load double* %52, align 8
+  %54 = load double* %1, align 8
+  %55 = sext i32 %4 to i64
+  %56 = add i64 %55, 54
+  %57 = getelementptr double* getelementptr inbounds (%0* @constants_, i64 0, i32 26, i64 0), i64 %56
+  %58 = load double* %57, align 8
+  %59 = fmul double %54, %58
+  %60 = fadd double %53, %59
+  %61 = fmul double %49, %60
+  %62 = fadd double %48, %61
+  %63 = fmul double %44, %62
+  %64 = fadd double %43, %63
+  %65 = fmul double %39, %64
+  %66 = fadd double %38, %65
+  %67 = load double* %2, align 8
+  %68 = sext i32 %4 to i64
+  %69 = add i64 %68, 14
+  %70 = getelementptr double* getelementptr inbounds (%0* @constants_, i64 0, i32 26, i64 0), i64 %69
+  %71 = load double* %70, align 8
+  %72 = load double* %2, align 8
+  %73 = sext i32 %4 to i64
+  %74 = add i64 %73, 29
+  %75 = getelementptr double* getelementptr inbounds (%0* @constants_, i64 0, i32 26, i64 0), i64 %74
+  %76 = load double* %75, align 8
+  %77 = load double* %2, align 8
+  %78 = sext i32 %4 to i64
+  %79 = add i64 %78, 44
+  %80 = getelementptr double* getelementptr inbounds (%0* @constants_, i64 0, i32 26, i64 0), i64 %79
+  %81 = load double* %80, align 8
+  %82 = load double* %2, align 8
+  %83 = sext i32 %4 to i64
+  %84 = add i64 %83, 59
+  %85 = getelementptr double* getelementptr inbounds (%0* @constants_, i64 0, i32 26, i64 0), i64 %84
+  %86 = load double* %85, align 8
+  %87 = fmul double %82, %86
+  %88 = fadd double %81, %87
+  %89 = fmul double %77, %88
+  %90 = fadd double %76, %89
+  %91 = fmul double %72, %90
+  %92 = fadd double %71, %91
+  %93 = fmul double %67, %92
+  %94 = fadd double %66, %93
+  %95 = bitcast [5 x double]* %3 to double*
+  %96 = getelementptr double* %95, i64 %6
+  store double %94, double* %96, align 8
+  %97 = icmp eq i32 %4, 5
+  %98 = add i32 %4, 1
+  %99 = icmp ne i1 %97, false
+  br i1 %99, label %"5", label %"4"
+
+"4":                                              ; preds = %"3"
+  br label %"3"
+
+"5":                                              ; preds = %"3", %"2"
+  br label %"6"
+
+"6":                                              ; preds = %"5"
+  br label %return
+
+return:                                           ; preds = %"6"
+  ret void
+}
+
+attributes #0 = { nounwind uwtable "no-frame-pointer-elim-non-leaf"="true" }
