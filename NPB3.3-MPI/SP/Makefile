@@ -1,6 +1,7 @@
 SHELL=/bin/sh
 BENCHMARK=sp
 BENCHMARKU=SP
+LLVM_VER=3.5
 
 include ../config/make.def
 
@@ -24,10 +25,12 @@ include ../sys/make.common
 # header.h: npbparams.h
 
 ${PROGRAM}: config ${OBJS}
-	${FLINK} ${FLINKFLAGS} -o ${PROGRAM} ${OBJS} ${FMPI_LIB}
+	llvm-link-${LLVM_VER} ${OBJS} -o ${PROGRAM}.bc
+	llc-${LLVM_VER} -filetype=obj ${PROGRAM}.bc -o ${PROGRAM}.o
+	${FLINK} ${FLINKFLAGS} -o ${PROGRAM} ${PROGRAM}.o ${FMPI_LIB}
 
 .f.o:
-	${FCOMPILE} $<
+	${FCOMPILE} $< -o $@
 
 sp.o:             sp.f  header.h npbparams.h  mpinpb.h
 make_set.o:       make_set.f  header.h npbparams.h  mpinpb.h

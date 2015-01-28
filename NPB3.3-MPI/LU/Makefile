@@ -2,6 +2,7 @@ SHELL=/bin/sh
 BENCHMARK=lu
 BENCHMARKU=LU
 VEC=
+LLVM_VER=3.5
 
 include ../config/make.def
 
@@ -34,10 +35,12 @@ ${PROGRAM}: config
 	fi
 
 exec: $(OBJS)
-	${FLINK} ${FLINKFLAGS} -o ${PROGRAM} ${OBJS} ${FMPI_LIB}
+	llvm-link-${LLVM_VER} ${OBJS} -o ${PROGRAM}.bc
+	llc-${LLVM_VER} -filetype=obj ${PROGRAM}.bc -o ${PROGRAM}.o
+	${FLINK} ${FLINKFLAGS} -o ${PROGRAM} ${PROGRAM}.o ${FMPI_LIB}
 
 .f.o :
-	${FCOMPILE} $<
+	${FCOMPILE} $< -o $@
 
 lu.o:		lu.f applu.incl npbparams.h
 bcast_inputs.o:	bcast_inputs.f applu.incl npbparams.h mpinpb.h

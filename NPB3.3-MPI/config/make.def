@@ -46,7 +46,7 @@ FMPI_INC = -I/usr/include/openmpi
 #---------------------------------------------------------------------------
 # Global *compile time* flags for Fortran programs
 #---------------------------------------------------------------------------
-FFLAGS	= -g -O0 -S -fplugin=$(DRAGONEGG) -fplugin-arg-dragonegg-emit-ir -fdump-rtl-expand # set `export DRAGONEGG` environment
+FFLAGS	= -O0 -S -fplugin=$(DRAGONEGG) -fplugin-arg-dragonegg-emit-ir -fdump-rtl-expand # -g set `export DRAGONEGG` environment
 
 #---------------------------------------------------------------------------
 # Global *link time* flags. Flags for increasing maximum executable 
@@ -92,7 +92,7 @@ CMPI_INC = -I/usr/local/include -I/usr/lib/openmpi/include/openmpi -I/usr/lib/op
 #---------------------------------------------------------------------------
 # Global *compile time* flags for C programs
 #---------------------------------------------------------------------------
-CFLAGS	= -g -c -O0 -emit-llvm
+CFLAGS	= -c -O0 -emit-llvm # -g
 
 #---------------------------------------------------------------------------
 # Global *link time* flags. Flags for increasing maximum executable 
@@ -119,7 +119,7 @@ CLINKFLAGS = -O
 # this compiler go here also; typically there are few flags required; hence 
 # there are no separate macros provided for such flags.
 #---------------------------------------------------------------------------
-CC	= cc -g
+CC	= cc # -g
 
 
 #---------------------------------------------------------------------------
